@@ -8,19 +8,13 @@ async function getImage(query)
    const response = await fetch(endpoint)
    const data = await response.json()
    //console.log(data)
-    const firstImage = data.data[24].url
+    const randomIndex = Math.floor(Math.random() * 25);
+    const firstImage = data.data[randomIndex].url;
    return firstImage
 
-//    return fetch(endpoint)
-//    .then((response) => response.json())
-//    .then((data) => {
-//        console.log(data);
-       
-//    })
-//    .catch((error) => console.log(error));
+
     
 } 
-//console.log(getImage('dog')) 
 
 getImage('dog').then(image => console.log(image)).catch(error => console.error(error));
 //console.log(process.env.API_KEY)
